@@ -1,0 +1,81 @@
+<div id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <app-topbar></app-topbar>
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Update Product</h1>
+          </div>
+
+        </div>
+        <div class="col">
+          <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+              <h6 class="m-0 font-weight-bold text-primary">Update product's details</h6>
+            </div>
+
+            <div class="card-body">
+              <form [formGroup]="ProductUpdateForm" (ngSubmit)="ProductUpdate()">
+                <div class="form-group">
+                  <label for="name" id="name">Name : </label>
+                  <input type="text" class="form-control" formControlName="name">
+                </div>
+                
+                <div>
+                  <div class="form-group">
+                    <label for="description" id="desc">Description : </label>
+                    <input type="text" class="form-control" formControlName="description">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="price" id="price">Price : </label>
+                    <input type="number" class="form-control" formControlName="price">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="photo" id="img">Image : </label>
+                    <input type="file" class="form-control-file" formControlName="image">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="category" id="price">Category : </label>
+                    <select class="custom-select" formControlName="category">
+                      <option selected>Choose category</option>
+                      <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.name}}</option>
+                    </select>
+                  </div>
+
+                  <button class="btn btn-sm btn-warning mt-3">Update</button>
+
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <app-footer></app-footer>
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+</div>
